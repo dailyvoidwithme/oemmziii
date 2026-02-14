@@ -1,0 +1,483 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=yes">
+    <title>sorry pragssss · 3 soft pages</title>
+    <!-- soft phone vibe · no video, just pages -->
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Segoe UI', 'Poppins', system-ui, -apple-system, BlinkMacSystemFont, 'Helvetica Neue', sans-serif;
+        }
+
+        /* soft pastel base */
+        body {
+            background: #ffeef4;  /* warm cushion */
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            padding: 0.8rem;
+            transition: background 0.2s;
+            /* soft floating shapes */
+            background-image: radial-gradient(circle at 10% 30%, rgba(255, 220, 240, 0.6) 0%, transparent 30%),
+                              radial-gradient(circle at 90% 70%, rgba(245, 210, 230, 0.5) 0%, transparent 40%);
+        }
+
+        /* phone frame card */
+        .phone-frame {
+            max-width: 380px;
+            width: 100%;
+            background: rgba(255, 250, 250, 0.8);
+            backdrop-filter: blur(15px);
+            -webkit-backdrop-filter: blur(15px);
+            border-radius: 48px 48px 42px 42px;
+            box-shadow: 0 30px 45px rgba(230, 150, 180, 0.3), 0 10px 25px rgba(255, 200, 215, 0.5), inset 0 2px 5px rgba(255,255,255,0.9);
+            border: 2px solid rgba(255, 245, 250, 0.9);
+            overflow: hidden;
+            padding: 2rem 1.5rem 2.2rem 1.5rem;
+            transition: all 0.3s ease;
+            min-height: 600px;
+            display: flex;
+            flex-direction: column;
+        }
+
+        /* page container - only one page visible at a time */
+        .page {
+            display: none;
+            flex-direction: column;
+            flex: 1;
+            animation: fadeIn 0.3s ease;
+        }
+
+        .page.active {
+            display: flex;
+        }
+
+        @keyframes fadeIn {
+            0% { opacity: 0.2; transform: translateY(6px); }
+            100% { opacity: 1; transform: translateY(0); }
+        }
+
+        /* ---- page 1 specific (sorry pragssss + button) ---- */
+        .big-emoji {
+            font-size: 4.2rem;
+            text-align: center;
+            filter: drop-shadow(0 8px 10px #fec7d5);
+            margin: 0.5rem 0 0.2rem;
+        }
+
+        h1 {
+            font-size: 3rem;
+            font-weight: 400;
+            color: #734b5e;
+            text-align: center;
+            line-height: 1.1;
+            letter-spacing: -0.5px;
+            text-shadow: 2px 2px 0 #fff3f8;
+            word-break: break-word;
+        }
+
+        .pragssss-highlight {
+            background: #ffe4ed;
+            padding: 0.2rem 0.8rem;
+            border-radius: 100px;
+            display: inline-block;
+            font-size: 1.8rem;
+            font-weight: 350;
+            color: #a34f6f;
+            border: 2px solid white;
+            margin: 0.4rem 0 1.8rem 0;
+            box-shadow: 0 6px 0 #e1b2c2;
+        }
+
+        .soft-text {
+            color: #4f3744;
+            font-size: 1.2rem;
+            font-weight: 300;
+            margin: 1rem 0 2.5rem;
+            background: rgba(255, 220, 235, 0.3);
+            padding: 1.2rem;
+            border-radius: 36px;
+            border: 2px solid #fff0f7;
+            line-height: 1.5;
+        }
+
+        /* big ol' button: aacha lode */
+        .page1-btn {
+            background: #ffd5e6;
+            border: none;
+            border-radius: 80px;
+            padding: 1.2rem 1rem;
+            font-size: 2.2rem;
+            font-weight: 500;
+            color: #562f41;
+            box-shadow: 0 12px 0 #c991ab, 0 10px 25px #fbb0cb;
+            cursor: pointer;
+            transition: 0.06s linear;
+            border: 3px solid #ffffff;
+            letter-spacing: 1px;
+            width: 100%;
+            margin: 1.5rem 0 0.8rem;
+            text-transform: lowercase;
+            line-height: 1.2;
+        }
+
+        .page1-btn:active {
+            transform: translateY(10px);
+            box-shadow: 0 4px 0 #c991ab, 0 12px 25px #f598b9;
+        }
+
+        /* page 2 – sorry note to a friend */
+        .note-card {
+            background: rgba(255, 245, 250, 0.8);
+            border-radius: 32px 32px 32px 12px;
+            padding: 2rem 1.5rem;
+            border: 3px solid #fff2fc;
+            box-shadow: inset 0 0 0 3px white, 0 18px 20px #ffdbea;
+            margin: 1rem 0 2rem 0;
+            font-size: 1.3rem;
+            color: #4d3342;
+            line-height: 1.7;
+            font-weight: 330;
+        }
+
+        .note-card i {
+            color: #b16f8a;
+        }
+
+        .signature-emoji {
+            font-size: 2.2rem;
+            text-align: right;
+            margin-top: 0.8rem;
+            opacity: 0.8;
+        }
+
+        .page2-btn, .page3-btn {
+            background: #ffcfe2;
+            border: none;
+            border-radius: 60px;
+            padding: 1rem 2rem;
+            font-size: 1.5rem;
+            font-weight: 400;
+            color: #4f3647;
+            box-shadow: 0 8px 0 #cfa5bb, 0 5px 20px #f8b7cf;
+            cursor: pointer;
+            transition: 0.06s linear;
+            border: 2px solid #fff2f9;
+            margin-top: 1rem;
+            width: fit-content;
+            align-self: center;
+        }
+
+        .page2-btn:active, .page3-btn:active {
+            transform: translateY(6px);
+            box-shadow: 0 2px 0 #cfa5bb, 0 8px 18px #f2a9c5;
+        }
+
+        /* page 3 – response chat */
+        .response-label {
+            font-size: 1.2rem;
+            color: #805b6e;
+            margin: 0.7rem 0 0.3rem 1rem;
+            font-weight: 350;
+            background: #ffdceb;
+            padding: 0.4rem 1.5rem;
+            border-radius: 60px;
+            display: inline-block;
+            border: 2px solid white;
+        }
+
+        textarea {
+            width: 100%;
+            background: #fff7fb;
+            border: 3px solid #ffe2f0;
+            border-radius: 36px;
+            padding: 1.3rem 1.3rem;
+            font-size: 1.2rem;
+            color: #35242e;
+            resize: vertical;
+            min-height: 160px;
+            outline: none;
+            box-shadow: 0 8px 15px #ffd8e6, inset 0 2px 6px white;
+            margin: 0.8rem 0 1rem;
+        }
+
+        textarea::placeholder {
+            color: #bc8fa6;
+            font-style: italic;
+            font-weight: 300;
+        }
+
+        .send-btn {
+            background: #ffe2ef;
+            border: none;
+            border-radius: 60px;
+            padding: 1rem 2rem;
+            font-size: 1.5rem;
+            font-weight: 420;
+            color: #492f40;
+            box-shadow: 0 9px 0 #cd9bb3, 0 5px 20px #fbbdd3;
+            cursor: pointer;
+            border: 3px solid white;
+            width: 100%;
+            transition: 0.06s linear;
+            margin: 0.5rem 0 1rem;
+        }
+
+        .send-btn:active {
+            transform: translateY(7px);
+            box-shadow: 0 2px 0 #cd9bb3, 0 8px 20px #f5aec9;
+        }
+
+        .email-status {
+            color: #a86b86;
+            font-size: 0.95rem;
+            margin: 0.5rem 0;
+            font-style: italic;
+            text-align: center;
+        }
+
+        /* back/page indicator */
+        .page-indicator {
+            display: flex;
+            justify-content: center;
+            gap: 10px;
+            margin-top: 1rem;
+        }
+
+        .dot {
+            width: 10px;
+            height: 10px;
+            background: #efc1d2;
+            border-radius: 20px;
+            transition: 0.2s;
+            border: 1px solid white;
+        }
+
+        .dot.active-dot {
+            background: #a65278;
+            width: 26px;
+        }
+
+        .footer-nav {
+            display: flex;
+            justify-content: space-between;
+            margin-top: 0.8rem;
+            font-size: 1rem;
+            color: #b2889d;
+        }
+
+        .nav-link {
+            background: transparent;
+            border: none;
+            color: #9f6783;
+            font-weight: 500;
+            font-size: 1.1rem;
+            padding: 0.3rem 1rem;
+            border-radius: 30px;
+            background: rgba(255, 255, 255, 0.5);
+            backdrop-filter: blur(3px);
+            border: 1px solid white;
+        }
+    </style>
+</head>
+<body>
+    <div class="phone-frame">
+        <!-- PAGE 1  "Im Sorry Pragssss" and button "aacha lode" -->
+        <div id="page1" class="page active">
+            <div class="big-emoji">🥺💗🌸</div>
+            <h1>Im Sorry</h1>
+            <div class="pragssss-highlight">Pragssss</div>
+            <div class="soft-text">
+                ( i know i've been too clingy<br>i hate making u uncomfortable )
+            </div>
+            <!-- big button that leads to page 2 -->
+            <button class="page1-btn" id="toPage2Btn">aacha lode</button>
+            <div style="flex:1;"></div>
+            <div class="page-indicator">
+                <span class="dot active-dot"></span>
+                <span class="dot"></span>
+                <span class="dot"></span>
+            </div>
+        </div>
+
+        <!-- PAGE 2  "sorrry to an friend" note -->
+        <div id="page2" class="page">
+            <div style="font-size: 2.5rem; text-align: center; margin-bottom: 0.2rem;">🧸💔</div>
+            <h2 style="color: #754e62; font-weight: 360; text-align: center; ">a note for you</h2>
+            <div class="note-card">
+                “sorrry to an friend”<br><br>
+                i never meant to be a burden.<br>
+                you're one of the few people i truly care about, and i messed up by holding too tight.<br>
+                <i>i’ll try to be better. no cling, only genuine friendship.</i>
+                <div class="signature-emoji">𓍢ִ໋🩷֒</div>
+            </div>
+            <!-- go to response page (page3) -->
+            <button class="page2-btn" id="toPage3Btn">➡️ reply / response</button>
+            <div style="flex:1;"></div>
+            <div class="page-indicator">
+                <span class="dot"></span>
+                <span class="dot active-dot"></span>
+                <span class="dot"></span>
+            </div>
+        </div>
+
+        <!-- PAGE 3 response + email -->
+        <div id="page3" class="page">
+            <div style="font-size: 2.2rem; margin-top: 0.2rem; text-align: center;">✉️🌿</div>
+            <span class="response-label">maaf krida kya nigga aapne</span>
+            <textarea id="replyField" placeholder="kuch bhi likh ... (even 'maaf kiya' )"></textarea>
+
+            <button class="send-btn" id="sendReplyBtn">👉 send reply 👈</button>
+            <div class="email-status" id="emailStatusMsg"></div>
+
+            <!-- back to page2 / page1 (soft navigation) -->
+            <div class="footer-nav">
+                <button class="nav-link" id="backToPage2From3"> ← note</button>
+                <button class="nav-link" id="backToPage1From3">start 🏠</button>
+            </div>
+            <div class="page-indicator" style="margin-top: 0.6rem;">
+                <span class="dot"></span>
+                <span class="dot"></span>
+                <span class="dot active-dot"></span>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        (function() {
+            // page elements
+            const page1 = document.getElementById('page1');
+            const page2 = document.getElementById('page2');
+            const page3 = document.getElementById('page3');
+            const toPage2Btn = document.getElementById('toPage2Btn');
+            const toPage3Btn = document.getElementById('toPage3Btn');
+            const backToPage2From3 = document.getElementById('backToPage2From3');
+            const backToPage1From3 = document.getElementById('backToPage1From3');
+            
+            // dots (update manually)
+            const dots = document.querySelectorAll('.dot'); // we'll reassign per page, but we can just update active class later
+
+            function setActivePage(pageNumber) {
+                // remove active class from all pages
+                page1.classList.remove('active');
+                page2.classList.remove('active');
+                page3.classList.remove('active');
+
+                // set active page
+                if (pageNumber === 1) page1.classList.add('active');
+                if (pageNumber === 2) page2.classList.add('active');
+                if (pageNumber === 3) page3.classList.add('active');
+
+                // update dots (indicator inside each page, but we target global dots? we have multiple .page-indicator but we can refresh all three.
+                // simpler: loop all dots and set based on active page. I'll reassign:
+                const allDots = document.querySelectorAll('.dot'); // this collects all 9 dots (3x3). we style based on index relative to page.
+                // But to keep soft, we just set per page manually by using the active class – I'll not overcomplicate. 
+                // I'll adjust via page indicators: there are 3 groups. We'll just change nothing, but they look fine if we keep as is.
+                // I'll just update style by adding active-dot to the right one inside each page.
+                // For simplicity, i'll recalc:
+                document.querySelectorAll('.page').forEach((page, idx) => {
+                    const pageDots = page.querySelectorAll('.dot');
+                    if (page.classList.contains('active')) {
+                        // for the active page, set the correct dot: page1 first dot active, page2 second dot active, page3 third dot active
+                        pageDots.forEach((dot, dotIdx) => {
+                            if ((idx === 0 && dotIdx === 0) || (idx === 1 && dotIdx === 1) || (idx === 2 && dotIdx === 2)) {
+                                dot.classList.add('active-dot');
+                            } else {
+                                dot.classList.remove('active-dot');
+                            }
+                        });
+                    } else {
+                        // remove all active-dots from non-active pages
+                        pageDots.forEach(dot => dot.classList.remove('active-dot'));
+                    }
+                });
+            }
+
+            // navigation
+            toPage2Btn.addEventListener('click', function() {
+                setActivePage(2);
+            });
+
+            toPage3Btn.addEventListener('click', function() {
+                setActivePage(3);
+            });
+
+            backToPage2From3.addEventListener('click', function() {
+                setActivePage(2);
+            });
+
+            backToPage1From3.addEventListener('click', function() {
+                setActivePage(1);
+            });
+
+            // email functionality (exact: to neverxraven@gmail.com)
+            const sendBtn = document.getElementById('sendReplyBtn');
+            const replyField = document.getElementById('replyField');
+            const emailStatus = document.getElementById('emailStatusMsg');
+
+            sendBtn.addEventListener('click', function() {
+                const replyText = replyField.value.trim();
+
+                if (replyText === '') {
+                    emailStatus.innerText = '🌸 likh kuch to ... (maybe "maaf kiya") 🌸';
+                    return;
+                }
+
+                // change button text momentarily
+                sendBtn.innerText = '🕊️ bhej rha...';
+                sendBtn.disabled = true; // prevent double click
+
+                setTimeout(() => {
+                    // prepare mailto
+                    const subject = encodeURIComponent('📬 reply for Pragssss (maaf krida)');
+                    const body = encodeURIComponent(`Your friend replied on sorry site:\n\n“${replyText}”\n\n— from 3-page soft apology`);
+                    const mailtoLink = `mailto:neverxraven@gmail.com?subject=${subject}&body=${body}`;
+
+                    // open default email client
+                    window.location.href = mailtoLink;
+
+                    // status update
+                    emailStatus.innerText = '✅ reply opened in mail app (check neverxraven@gmail.com later)';
+
+                    // restore button but keep it enabled after mail
+                    sendBtn.innerText = '👉 send reply 👈';
+                    sendBtn.disabled = false;
+
+                    // small feedback: clear timeout safety
+                }, 300);
+            });
+
+            // fix if user spams, but we re-enable after mail attempt anyway, but also if mailto fails they can try again
+            // re-enable on any error? we set disabled false after click; but if user clicks many times, we disable only 300ms.
+            // it's fine
+
+            // initial active page dots set
+            setActivePage(1);
+
+            // extra: back to page1 from page2? we have no direct, but we can use dots? but they can use the back via page3. keep soft.
+            // Optionally we can add tiny "page1" link at bottom of page2? but they have "reply/response" button, and can use start button in page3.
+            // I'll also add a hidden "p1" if needed – but not necessary
+            // Ensure page2 also has a way back to page1? they can go to page3 and then home, or i add a small "↩️" somewhere
+            // add minimal back to start on page2 as well? let's add a tiny "back to start" at bottom page2 inside footer-nav? but page2 has no footer.
+            // I'll put a small div under note-card
+            const backToPage1From2 = document.createElement('button');
+            backToPage1From2.className = 'nav-link';
+            backToPage1From2.style.marginTop = '12px';
+            backToPage1From2.innerText = '🏠 back to start';
+            backToPage1From2.addEventListener('click', () => setActivePage(1));
+            // append inside page2 (after button)
+            if (page2) {
+                const page2Btn = document.getElementById('toPage3Btn');
+                page2.insertBefore(backToPage1From2, page2Btn.nextSibling);
+            }
+
+            // also add a quick page2 back in page1? we have big button, fine
+        })();
+    </script>
+</body>
+</html>
